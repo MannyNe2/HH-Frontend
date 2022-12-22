@@ -1,0 +1,35 @@
+query getOwnProfile {
+  user {
+    id
+    display_name
+    first_name
+    last_name
+    email_address
+    gender
+    is_banned
+    is_verified
+    created_at
+    role
+    phone_number
+    avatar
+    about
+  }
+}
+
+query getProfileById($id: uuid!) {
+  user_by_pk(id: $id) {
+    id
+    display_name
+    first_name
+    last_name
+    email_address
+    gender
+    is_banned
+    is_verified
+    created_at
+    role
+    phone_number
+    avatar
+    about
+  }
+}

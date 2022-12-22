@@ -1,0 +1,12 @@
+query getCampaignRewards($campaignId: uuid!) {
+  campaign:campaign_by_pk(id: $campaignId) {
+    rewards(order_by: { pledge_amount: asc }) {
+      id
+      title
+      pledge_amount
+      estimated_delivery_date
+      description
+      type
+    }
+  }
+}

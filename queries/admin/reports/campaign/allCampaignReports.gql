@@ -1,0 +1,13 @@
+query allCampaignReports {
+  campaign(
+    where: { reports: { reason: { _neq: "" }, is_resolved: { _eq: false } } }
+  ) {
+    id
+    title
+    reports {
+      id
+      reason
+      created_at
+    }
+  }
+}

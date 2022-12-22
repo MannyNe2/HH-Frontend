@@ -1,0 +1,13 @@
+query signIn($emailAddress: String!, $password: String!) {
+  signIn(emailAddress: $emailAddress, password: $password) {
+    accessToken
+    userId
+    firstName
+    lastName
+    isVerified
+    isBanned
+    avatarUrl
+    displayName
+    role
+  }
+}

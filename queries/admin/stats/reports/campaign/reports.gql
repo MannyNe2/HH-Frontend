@@ -1,0 +1,20 @@
+query allReportsCa {
+  allCa: campaign_report_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+
+subscription reviewedReportsCa {
+  reviewedCa: campaign_report_aggregate(
+    where: { is_resolved: { _eq: true } }
+    distinct_on: reported_campaign_id
+  ) {
+    aggregate {
+      count
+    }
+  }
+}
+
+

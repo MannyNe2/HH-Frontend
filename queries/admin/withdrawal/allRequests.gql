@@ -1,0 +1,18 @@
+query allRequests {
+  withdrawal_request(where: { status: { _eq: pending } }) {
+    id
+    campaign {
+      id
+      title
+      thumbnail
+      is_private
+      creator {
+        id
+        display_name
+      }
+      created_at
+      deadline
+      is_ended
+    }
+  }
+}

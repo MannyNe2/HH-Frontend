@@ -1,0 +1,5 @@
+mutation generateVouchers($codeLength: Int, $count: Int, $value: money) {
+  generateVouchers(codeLength: $codeLength, count: $count, value: $value) {
+    success
+  }
+}

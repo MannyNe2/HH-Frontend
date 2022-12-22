@@ -1,0 +1,9 @@
+query getTotalPledgesWithdrawn {
+  pledge_aggregate(where: { status: { _eq: withdrawn } }) {
+    aggregate {
+      sum {
+        amount
+      }
+    }
+  }
+}

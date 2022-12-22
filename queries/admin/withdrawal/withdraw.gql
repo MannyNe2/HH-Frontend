@@ -1,0 +1,15 @@
+mutation withdraw(
+  $adminPass: String!
+  $creatorPass: String!
+  $withdrawRequestId: uuid!
+) {
+  approveWithdrawal(
+    adminPassword: $adminPass
+    creatorPassword: $creatorPass
+    withdrawalRequestId: $withdrawRequestId
+  ) {
+    handlerId
+    status
+    withdrawalRequestId
+  }
+}

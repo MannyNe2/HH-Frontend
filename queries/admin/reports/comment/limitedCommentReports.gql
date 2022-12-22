@@ -1,0 +1,14 @@
+query limitedCommentReports {
+  comment(
+    where: { reports: { reason: { _neq: "" }, is_resolved: { _eq: false } } }
+    limit: 5
+  ) {
+    id
+    text
+    reports {
+      id
+      reason
+      created_at
+    }
+  }
+}

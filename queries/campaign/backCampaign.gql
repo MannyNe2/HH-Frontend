@@ -1,0 +1,14 @@
+mutation backCampaign(
+  $campaignId: uuid!
+  $amount: numeric!
+  $acceptRewards: Boolean = true
+) {
+  backCampaign(
+    amount: $amount
+    campaignId: $campaignId
+    acceptRewards: $acceptRewards
+  ) {
+    pledgeId
+    transactionId
+  }
+}

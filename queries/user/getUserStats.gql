@@ -1,0 +1,15 @@
+query getUserStats($userId: uuid!) {
+  user: user_by_pk(id: $userId) {
+    wallet {
+      useable_balance
+      pledges {
+        amount
+      }
+    }
+    eligible_rewards {
+      reward {
+        id
+      }
+    }
+  }
+}

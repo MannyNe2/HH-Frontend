@@ -1,0 +1,35 @@
+mutation stopCampaign(
+  $campaignId: uuid!
+  $investigatorId: uuid!
+  $adminPass: String!
+) {
+  forceStopCampaign(
+    campaignId: $campaignId
+    password: $adminPass
+    banCreator: false
+  ) {
+    campaignId
+  }
+  update_campaign_report(
+    where: { reported_campaign_id: { _eq: $campaignId } }
+    _set: { is_resolved: true, investigating_user_id: $investigatorId }
+  ) {
+    affected_rows
+  }
+}
+
+mutation stopCampaignAndBan(
+  $campaignId: uuid!
+  $investigatorId: uuid!
+  $adminPass: String!
+) {
+  forceStopCampaign(campaignId: $campaignId, password: $adminPass) {
+    campaignId
+  }
+  update_campaign_report(
+    where: { reported_campaign_id: { _eq: $campaignId } }
+    _set: { is_resolved: true, investigating_user_id: $investigatorId }
+  ) {
+    affected_rows
+  }
+}

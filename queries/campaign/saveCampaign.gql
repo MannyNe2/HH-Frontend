@@ -1,0 +1,11 @@
+mutation saveCampaign($campaignId: uuid!) {
+  insert_saved_campaign_one(object: { campaign_id: $campaignId }) {
+    created_at
+  }
+}
+
+mutation saveCampaignAdmin($campaignId: uuid!, $userId: uuid!) {
+  insert_saved_campaign_one(object: { campaign_id: $campaignId, user_id: $userId }) {
+    created_at
+  }
+}

@@ -1,0 +1,24 @@
+mutation editCampaign(
+  $campaignId: uuid!
+  $title: String!
+  $thumbnail: String!
+  $isPrivate: Boolean!
+  $description: String!
+  $deadline: date!
+  $banner: String!
+) {
+  campaign: update_by_pk_campaign(
+    pk_columns: { id: $campaignId }
+    _set: {
+      title: $title
+      thumbnail: $thumbnail
+      is_private: $isPrivate
+      description: $description
+      deadline: $deadline
+      banner: $banner
+    }
+  ) {
+    id
+    updated_at
+  }
+}

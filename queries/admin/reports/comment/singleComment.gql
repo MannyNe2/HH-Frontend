@@ -1,0 +1,27 @@
+query singleComment($campaignId: uuid!) {
+  comment_by_pk(id: $campaignId) {
+    id
+    text
+    user {
+      id
+      display_name
+      avatar
+      role
+    }
+    reports {
+      id
+      reason
+      reporter {
+        id
+        avatar
+        display_name
+        role
+        updated_at
+      }
+      created_at
+      updated_at
+    }
+    created_at
+    updated_at
+  }
+}

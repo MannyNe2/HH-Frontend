@@ -1,0 +1,17 @@
+mutation approve($handlerId: uuid!, $userId: uuid!) {
+  update_creator_request(
+    where: { requestor: { id: { _eq: $userId } } }
+    _set: { handled_by_user_id: $handlerId, status: approved }
+  ) {
+    affected_rows
+  }
+}
+
+mutation deny($handlerId: uuid!, $userId: uuid!) {
+  update_creator_request(
+    where: { requestor: { id: { _eq: $userId } } }
+    _set: { handled_by_user_id: $handlerId, status: denied }
+  ) {
+    affected_rows
+  }
+}

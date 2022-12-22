@@ -1,0 +1,11 @@
+query getCampaignInfo($campaignId: uuid!) {
+  getCampaignSentiment(campaignId: $campaignId) {
+    dislikes
+    likes
+  }
+  getCampaignStats(campaignId: $campaignId) {
+    backersCount
+    totalAmount
+    currentUserRelation
+  }
+}

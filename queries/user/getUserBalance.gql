@@ -1,0 +1,7 @@
+query getUserBalance($userId: uuid!) {
+  user_by_pk(id: $userId) {
+    wallet {
+      useable_balance
+    }
+  }
+}

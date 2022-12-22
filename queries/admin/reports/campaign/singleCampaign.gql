@@ -1,0 +1,41 @@
+query singleCampaign($campaignId: uuid!) {
+  campaign_by_pk(id: $campaignId) {
+    id
+    title
+    thumbnail
+    is_private
+    creator {
+      id
+      display_name
+    }
+    reports {
+      id
+      reason
+      reporter {
+        id
+        avatar
+        display_name
+        role
+        updated_at
+      }
+      created_at
+      updated_at
+    }
+    created_at
+    deadline
+    is_ended
+  }
+}
+
+query singleCampaignStats($campaignId: uuid!) {
+  campaignInfo: getCampaignStats(campaignId: $campaignId) {
+    totalAmount
+  }
+}
+
+query singleCampaignSentiment($campaignId: uuid!) {
+  campaignSentiment: getCampaignSentiment(campaignId: $campaignId) {
+    likes
+    dislikes
+  }
+}

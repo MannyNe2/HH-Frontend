@@ -1,0 +1,7 @@
+mutation requestCreatorship($image: String!, $password: String!) {
+  requestCreatorship(image: $image, password: $password) {
+    requestId
+    created_at
+    status
+  }
+}

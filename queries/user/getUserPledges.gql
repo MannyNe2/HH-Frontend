@@ -1,0 +1,17 @@
+query getUserPledges($userId: uuid!) {
+  user:user_by_pk(id: $userId) {
+    wallet {
+      pledges {
+        id
+        amount
+        campaign {
+          id
+          title
+        }
+        created_at
+        status
+        accept_rewards
+      }
+    }
+  }
+}

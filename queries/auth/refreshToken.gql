@@ -1,0 +1,5 @@
+query refreshToken($oldToken: String!) {
+  refreshToken(oldToken: $oldToken) {
+    newToken
+  }
+}

@@ -1,0 +1,6 @@
+mutation endCampaign($campaignId: uuid!, $password: String!, $status: String!) {
+  endCampaign(campaignId: $campaignId, password: $password, status: $status) {
+    campaignId
+    endStatus
+  }
+}

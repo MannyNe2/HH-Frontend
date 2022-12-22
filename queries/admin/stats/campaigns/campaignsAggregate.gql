@@ -1,0 +1,17 @@
+subscription campaignsAggregate {
+  allCampaign: campaign_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+
+subscription newCampaignsAggregate($dateC: timestamptz!) {
+  newCampaign: campaign_aggregate(
+    where: { created_at: { _gte: $dateC, _lte: "now()" } }
+  ) {
+    aggregate {
+      count
+    }
+  }
+}

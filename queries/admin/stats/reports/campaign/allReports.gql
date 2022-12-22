@@ -1,0 +1,17 @@
+query allReports {
+<<<<<<< HEAD
+  campaign(where: { reports: { reason: { _neq: "" } } }) {
+    id
+    title
+    reports {
+      id
+      reason
+      created_at
+=======
+  campaign_report_aggregate {
+    aggregate {
+      count
+>>>>>>> dae8e90... 🚧 wip(reports): added new store and modified reports
+    }
+  }
+}

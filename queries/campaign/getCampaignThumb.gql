@@ -1,0 +1,26 @@
+query getCampaignThumb($campaignId: uuid!) {
+  campaign: campaign_by_pk(id: $campaignId) {
+    title
+    thumbnail
+    goal
+    is_private
+    is_ended
+    end_status
+    deadline
+    creator {
+      avatar
+      display_name
+      role
+      id
+    }
+  }
+  campaignInfo: getCampaignStats(campaignId: $campaignId) {
+    backersCount
+    totalAmount
+    currentUserRelation
+  }
+  campaignSentiment: getCampaignSentiment(campaignId: $campaignId) {
+    likes
+    dislikes
+  }
+}

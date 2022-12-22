@@ -1,0 +1,17 @@
+query getRewards($id: uuid!) {
+  user: user_by_pk(id: $id) {
+    eligible_rewards {
+      reward {
+        id
+        pledge_amount
+        title
+        type
+        description
+        estimated_delivery_date
+        campaign {
+          id
+        }
+      }
+    }
+  }
+}

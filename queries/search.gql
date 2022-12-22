@@ -1,0 +1,38 @@
+query search($query: String!) {
+  campaigns_by_title: campaign(
+    where: { title: { _iregex: $query } }
+    limit: 7
+  ) {
+    id
+    title
+    thumbnail
+    is_private
+    creator {
+      id
+      display_name
+    }
+    created_at
+    deadline
+    is_ended
+  }
+  users: user(
+    distinct_on: id
+    where: {
+      _or: [
+        { display_name: { _iregex: $query } }
+        { first_name: { _iregex: $query } }
+        { last_name: { _iregex: $query } }
+      ]
+    }
+    limit: 7
+  ) {
+    id
+    display_name
+    avatar
+    first_name
+    last_name
+    is_verified
+    role
+    is_banned
+  }
+}

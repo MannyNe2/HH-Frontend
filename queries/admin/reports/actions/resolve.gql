@@ -1,0 +1,17 @@
+mutation resolveComment($investigatorId: uuid!, $commentId: uuid!) {
+  update_comment_report(
+    where: { reported_comment_id: { _eq: $commentId } }
+    _set: { is_resolved: true, investigating_user_id: $investigatorId }
+  ) {
+    affected_rows
+  }
+}
+
+mutation resolveCampaign($investigatorId: uuid!, $campaignId: uuid!) {
+  update_campaign_report(
+    where: { reported_campaign_id: { _eq: $campaignId } }
+    _set: { is_resolved: true, investigating_user_id: $investigatorId }
+  ) {
+    affected_rows
+  }
+}

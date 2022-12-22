@@ -1,0 +1,14 @@
+query limitedCampaignReports {
+  campaign(
+    where: { reports: { reason: { _neq: "" }, is_resolved: { _eq: false } } }
+    limit: 5
+  ) {
+    id
+    title
+    reports {
+      id
+      reason
+      created_at
+    }
+  }
+}

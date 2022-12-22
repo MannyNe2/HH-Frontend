@@ -1,0 +1,9 @@
+mutation requestWithdrawal($campaignId: uuid!, $password: String!) {
+  requestWithdrawal(campaignId: $campaignId, password: $password) {
+    id
+    campaignId
+    createdAt
+    status
+    updatedAt
+  }
+}

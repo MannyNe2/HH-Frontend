@@ -1,0 +1,7 @@
+mutation upgrade($userId: uuid!) {
+  update_user(where: { id: { _eq: $userId } }, _set: { role: creator }) {
+    returning {
+      first_name
+    }
+  }
+}

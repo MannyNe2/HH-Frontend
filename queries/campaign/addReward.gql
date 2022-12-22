@@ -1,0 +1,26 @@
+mutation addReward(
+  $campaignId: uuid!
+  $title: String!
+  $description: String!
+  $minPledge: numeric!
+  $estimatedDeliveryDate: date!
+  $rewardType: crowdfunding_platform_reward_type_enum!
+) {
+  reward: insert_reward_one(
+    object: {
+      campaign_id: $campaignId
+      title: $title
+      description: $description
+      pledge_amount: $minPledge
+      estimated_delivery_date: $estimatedDeliveryDate
+      type: $rewardType
+    }
+  ) {
+    id
+    pledge_amount
+    estimated_delivery_date
+    description
+    title
+    type
+  }
+}

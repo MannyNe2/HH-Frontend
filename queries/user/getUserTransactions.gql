@@ -1,0 +1,14 @@
+query getUserTransactions($userId: uuid!) {
+  user: user_by_pk(id: $userId) {
+    wallet {
+      transactions {
+        id
+        amount
+        starting_balance
+        final_balance
+        remark
+        transaction_date
+      }
+    }
+  }
+}

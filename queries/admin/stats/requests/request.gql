@@ -1,0 +1,15 @@
+query availableRequests {
+  allReq: creator_request_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+
+query resolvedRequests {
+  resolvedReq: creator_request_aggregate(where: { status: { _neq: pending } }) {
+    aggregate {
+      count
+    }
+  }
+}

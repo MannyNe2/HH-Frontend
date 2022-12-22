@@ -1,0 +1,20 @@
+subscription creatorAggregate {
+  allCreator: user_aggregate(where: { role: { _eq: creator } }) {
+    aggregate {
+      count
+    }
+  }
+}
+
+subscription newCreatorAggregate($dateC: timestamptz!) {
+  newCreator: user_aggregate(
+    where: {
+      created_at: { _gte: $dateC, _lte: "now()" }
+      role: { _eq: creator }
+    }
+  ) {
+    aggregate {
+      count
+    }
+  }
+}

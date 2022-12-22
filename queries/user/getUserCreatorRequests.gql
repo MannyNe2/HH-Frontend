@@ -1,0 +1,10 @@
+query getUserCreatorRequests($id: uuid!) {
+  user: user_by_pk(id: $id) {
+    creator_requests(order_by: {created_at: desc, updated_at: desc}) {
+      id
+      status
+      created_at
+      updated_at
+    }
+  }
+}

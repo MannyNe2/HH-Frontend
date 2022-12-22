@@ -1,0 +1,23 @@
+query getCreatorCampaigns($creatorId: uuid!) {
+  campaign(
+    where: { creator: { id: { _eq: $creatorId } } }
+    order_by: { created_at: desc }
+  ) {
+    id
+    is_ended
+    end_status
+    likes {
+      user_id
+    }
+    dislikes {
+      user_id
+    }
+    pledges {
+      id
+      amount
+    }
+    rewards {
+      id
+    }
+  }
+}

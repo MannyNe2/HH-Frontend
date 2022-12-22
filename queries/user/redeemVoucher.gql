@@ -1,0 +1,6 @@
+mutation redeemVoucher($code: String!) {
+  claimVoucher(voucherCode: $code) {
+    success
+    remark
+  }
+}

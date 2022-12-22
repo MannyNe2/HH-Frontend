@@ -1,0 +1,42 @@
+query getCampaign($campaignId: uuid!) {
+  campaign_by_pk(id: $campaignId) {
+    id
+    title
+    thumbnail
+    description
+    goal
+    is_ended
+    end_status
+    is_private
+    deadline
+    created_at
+    creator {
+      avatar
+      display_name
+      id
+      role
+      is_verified
+    }
+    comments {
+      id
+      text
+      user {
+        id
+        avatar
+        display_name
+        role
+      }
+      created_at
+      updated_at
+    }
+    banner
+    rewards {
+      id
+      pledge_amount
+      estimated_delivery_date
+      description
+      title
+      type
+    }
+  }
+}

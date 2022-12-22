@@ -1,0 +1,8 @@
+
+query getUserCampaigns($userId: uuid!) {
+  user: user_by_pk(id: $userId) {
+    campaigns {
+      id
+    }
+  }
+}

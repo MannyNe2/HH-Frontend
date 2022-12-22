@@ -1,0 +1,23 @@
+mutation createCampaign(
+  $title: String!
+  $description: String!
+  $goal: numeric!
+  $thumbnail: String!
+  $banner: String!
+  $deadline: date!
+  $isPrivate: Boolean = true
+) {
+  campaign:insert_campaign_one(
+    object: {
+      title: $title
+      description: $description
+      goal: $goal
+      thumbnail: $thumbnail
+      banner: $banner
+      deadline: $deadline
+      is_private: $isPrivate
+    }
+  ) {
+    id
+  }
+}

@@ -1,0 +1,11 @@
+mutation banUser($userId: uuid!) {
+  update_by_pk_user(pk_columns: { id: $userId }, _set: { is_banned: true }) {
+    display_name
+  }
+}
+
+mutation muteUser($userId: uuid!) {
+  update_by_pk_user(pk_columns: { id: $userId }, _set: { is_muted: true }) {
+    display_name
+  }
+}

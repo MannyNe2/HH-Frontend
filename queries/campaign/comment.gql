@@ -1,0 +1,16 @@
+mutation comment($campaignId: uuid!, $text: String!) {
+  insert_comment_one(object: { campaign_id: $campaignId, text: $text }) {
+    created_at
+    id
+    text
+    updated_at
+  }
+}
+mutation commentAdmin($campaignId: uuid!, $userId: uuid!, $text: String!) {
+  insert_comment_one(object: { campaign_id: $campaignId, user_id: $userId, text: $text }) {
+    created_at
+    id
+    text
+    updated_at
+  }
+}

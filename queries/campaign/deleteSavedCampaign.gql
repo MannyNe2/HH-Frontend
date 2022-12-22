@@ -1,0 +1,5 @@
+mutation deleteSavedCampaign($campaignId: uuid!, $userId: uuid!) {
+  delete_by_pk_saved_campaign(campaign_id: $campaignId, user_id: $userId) {
+    campaign_id
+  }
+}

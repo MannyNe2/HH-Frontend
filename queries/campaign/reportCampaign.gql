@@ -1,0 +1,7 @@
+mutation reportCampaign($reason: String!, $campaignId: uuid!) {
+  campaignReport: insert_campaign_report(
+    objects: { reason: $reason, reported_campaign_id: $campaignId }
+  ) {
+    affected_rows
+  }
+}

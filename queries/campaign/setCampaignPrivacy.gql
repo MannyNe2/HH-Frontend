@@ -1,0 +1,9 @@
+mutation setCampaignPrivacy($campaignId: uuid!, $isPrivate: Boolean!) {
+  campaign:update_by_pk_campaign(
+    pk_columns: { id: $campaignId }
+    _set: { is_private: $isPrivate }
+  ) {
+    id
+    is_private
+  }
+}

@@ -1,0 +1,18 @@
+query allReportsCo {
+  allCo: comment_report_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+
+subscription reviewedReportsCo {
+  reviewedCo: comment_report_aggregate(
+    where: { is_resolved: { _eq: true } }
+    distinct_on: reported_comment_id
+  ) {
+    aggregate {
+      count
+    }
+  }
+}

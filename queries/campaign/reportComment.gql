@@ -1,0 +1,7 @@
+mutation reportComment($reason: String!, $commentId: uuid!) {
+  commentReport: insert_comment_report(
+    objects: { reason: $reason, reported_comment_id: $commentId }
+  ) {
+    affected_rows
+  }
+}

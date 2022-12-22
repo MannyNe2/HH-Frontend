@@ -1,0 +1,17 @@
+query getUserComments($userId: uuid!) {
+  user_comments: user_by_pk(id: $userId) {
+    comments {
+      id
+      text
+      user {
+        id
+        avatar
+        display_name
+        role
+      }
+      campaign_id
+      created_at
+      updated_at
+    }
+  }
+}

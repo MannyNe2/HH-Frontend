@@ -1,0 +1,18 @@
+subscription userAggregate {
+  allUsers: user_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+
+
+subscription newUserAggregate($dateC: timestamptz!) {
+  newUsers: user_aggregate(
+    where: { created_at: { _gte: $dateC, _lte: "now()" } }
+  ) {
+    aggregate {
+      count
+    }
+  }
+}

@@ -1,0 +1,5 @@
+query discoverCampaigns {
+  campaign(order_by: {created_at: desc}) {
+    id
+  }
+}

@@ -1,0 +1,23 @@
+mutation changePassword($oldPassword: String!, $newPassword: String!) {
+  changePassword(newPassword: $newPassword, oldPassword: $oldPassword) {
+    success
+    remark
+  }
+}
+
+
+mutation updateUserInfo($id: uuid!, $about: String, $avatar: String, $displayName: String, $firstName: String!, $gender: String!, $lastName: String!, $phoneNumber: numeric) {
+  update_by_pk_user(pk_columns: {id: $id}, _set: {first_name: $firstName, last_name: $lastName, display_name: $displayName, avatar: $avatar, about: $about, phone_number: $phoneNumber, gender: $gender}) {
+    about
+    avatar
+    created_at
+    display_name
+    email_address
+    first_name
+    gender
+    id
+    is_verified
+    last_name
+    phone_number
+  }
+}

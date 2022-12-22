@@ -1,0 +1,27 @@
+mutation createUser(
+  $emailAddress: String!
+  $password: String!
+  $firstName: String!
+  $lastName: String!
+  $displayName: String!
+  $gender: String!
+) {
+  signUp(
+    emailAddress: $emailAddress
+    password: $password
+    firstName: $firstName
+    lastName: $lastName
+    displayName: $displayName
+    gender: $gender
+  ) {
+    accessToken
+    userId
+    firstName
+    lastName
+    isVerified
+    isBanned
+    avatarUrl
+    displayName
+    role
+  }
+}

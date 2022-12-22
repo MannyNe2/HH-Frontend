@@ -1,0 +1,13 @@
+query creatorRequest {
+  creator_request(where: { status: { _eq: pending } }) {
+    requestor {
+      id
+      first_name
+      last_name
+      display_name
+      avatar
+    }
+    identification_image
+    created_at
+  }
+}

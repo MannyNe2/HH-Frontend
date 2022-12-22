@@ -1,0 +1,16 @@
+query allCommentReports {
+  comment(
+    where: {
+      reports: { reason: { _neq: "" }, is_resolved: { _eq: false } }
+      user: { is_banned: { _eq: false } }
+    }
+  ) {
+    id
+    text
+    reports {
+      id
+      reason
+      created_at
+    }
+  }
+}

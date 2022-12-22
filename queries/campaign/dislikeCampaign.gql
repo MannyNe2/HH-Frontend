@@ -1,0 +1,7 @@
+mutation dislikeCampaign($campaignId: uuid!) {
+  campaignDislike(campaignId: $campaignId) {
+    disliked
+    likesCount
+    dislikesCount
+  }
+}
