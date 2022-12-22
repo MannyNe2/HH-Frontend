@@ -1,0 +1,81 @@
+// @font-face {
+//   font-family: 'Frutiger Neue';
+//   src: url('fonts/Frutiger Neue LT Heavy.ttf') format('truetype');
+//   font-weight: 900;
+//   font-style: normal;
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Murecho:wght@100;300;400;500;700;900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;300;400;500;700;900&display=swap');
+// @import url("https://fonts.googleapis.com/css2?family=Murecho:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Frutiger Neue LT";
+  src: url("fonts/Frutiger Neue LT Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Frutiger Neue LT";
+  src: url("fonts/Frutiger Neue LT Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Frutiger Neue LT";
+  src: url("fonts/Frutiger Neue LT Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Frutiger Neue LT";
+  src: url("fonts/Frutiger Neue LT Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Frutiger Neue LT";
+  src: url("fonts/Frutiger Neue LT.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Frutiger Neue LT";
+  src: url("fonts/Frutiger Neue LT Thin.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Frutiger Neue LT";
+  src: url("fonts/Frutiger Neue LT Ultra Light.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+.img-contain {
+  object-fit: contain !important;
+  max-width: 80%;
+}
+
+.div-contain {
+  object-fit: contain !important;
+  max-height: 80%;
+}
+
+.add-transition-05 {
+  transition: 0.5s;
+}
+
+.add-transition-03 {
+  transition: 0.3s;
+}
+
+.add-transition-10 {
+  transition: 1s;
+}
