@@ -14,8 +14,15 @@
       <div class="d-flex justify-space-between">
         <div class="d-flex justify-start align-center">
           <NuxtLink
+            v-if="this.$authHelper.isLoggedIn()"
             :class="`${displayNameColor}--text font-weight-medium`"
             :to="`/profile/${comment.user.id}`"
+            >{{ comment.user.display_name }}</NuxtLink
+          >
+          <NuxtLink
+            v-else
+            :class="`${displayNameColor}--text font-weight-medium`"
+            to="/auth/login"
             >{{ comment.user.display_name }}</NuxtLink
           >
           <div
@@ -101,7 +108,11 @@ export default {
       }
     },
     currentUserId() {
-      return this.$authHelper.getUserInfo().id;
+      let user = this.$authHelper.getUserInfo() === null ? 'nonexistingid' : this.$authHelper.getUserInfo().id;
+      if(user !== 'nonexistingid'){
+        return this.$authHelper.getUserInfo().id;
+      }
+      return user;
     },
   },
 };

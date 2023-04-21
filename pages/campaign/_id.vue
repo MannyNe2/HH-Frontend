@@ -180,7 +180,11 @@ export default {
   },
   computed: {
     isOwnCampaign() {
-      return this.$authHelper.getUserInfo().id === this.campaign.creator.id;
+      let user = this.$authHelper.getUserInfo() === null ? 'nonexistingid' : this.$authHelper.getUserInfo().id;
+      if(user !== 'nonexistingid'){
+        return this.$authHelper.getUserInfo().id === this.campaign.creator.id;
+      }
+      return false;
     },
     pastDeadline() {
       return compareAsc(Date.now(), parseISO(this.campaign.deadline)) > 0;
