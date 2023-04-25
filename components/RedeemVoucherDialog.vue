@@ -100,7 +100,8 @@ export default {
           if (res.triggerRefill.session) {
             // TODO: Claim success notification
             this.$emit("voucher-redeemed");
-            window.location = res.triggerRefill.session;
+            console.log(res.triggerRefill.session);
+            window.location.href = res.triggerRefill.session;
           }
         }
       } catch (err) {
