@@ -1,6 +1,6 @@
 <template>
   <v-card class="px-8">
-    <h1 class="text-h5 pt-8 font-weight-light">Redeem Voucher</h1>
+    <h1 class="text-h5 pt-8 font-weight-light">Refill Funds</h1>
     <validation-observer ref="observer" v-slot="{ handleSubmit }">
       <form class="py-8" @submit.prevent="handleSubmit(submit)">
         <validation-provider
@@ -9,7 +9,7 @@
           :rules="{ required: true, max: 50 }"
         >
           <v-text-field
-            placeholder="Voucher Code"
+            placeholder="Amount"
             v-model="voucherCode"
             type="text"
             filled
@@ -29,7 +29,7 @@
         </slot>
         <v-card-actions class="d-flex justify-end">
           <v-btn color="primary" :loading="submitting" type="submit"
-            >Claim</v-btn
+            >Refill</v-btn
           >
           <v-btn color="error" text @click.stop="closeDialogEvent"
             >Cancel</v-btn
@@ -49,6 +49,7 @@ import {
 } from "vee-validate";
 import { required, max } from "vee-validate/dist/rules";
 import { redeemVoucher } from "~/queries/user/redeemVoucher.gql";
+import { refill } from "~/queries/user/refill.gql";
 
 setInteractionMode("eager");
 
@@ -83,28 +84,23 @@ export default {
       this.submitError = "";
       this.$refs.observer.validate();
       try {
-        const code = this.voucherCode.replaceAll(/\W/g, "").toUpperCase();
+        const code = this.voucherCode;
         const res = await this.$apollo
-          .mutate({
-            mutation: redeemVoucher,
+          .query({
+            query: refill,
             variables: {
-              code: code,
+              refillAmount: code,
             },
           })
           .then(({ data }) => {
             return data;
           });
         this.submitting = false;
-        if (res.claimVoucher) {
-          if (res.claimVoucher.success) {
+        if (res.triggerRefill) {
+          if (res.triggerRefill.session) {
             // TODO: Claim success notification
-            this.$notify({
-              text: "Voucher Redeemed",
-              type: "success white--text text-center"
-            })
             this.$emit("voucher-redeemed");
-          } else {
-            this.submitError = res.claimVoucher.remark;
+            window.location = res.triggerRefill.session;
           }
         }
       } catch (err) {

@@ -38,7 +38,7 @@
             v-on="on"
             @click="dialog = true"
             class="mx-5 my-1 my-sm-0"
-            >Redeem Voucher</v-btn
+            >Refill Funds</v-btn
           >
         </template>
         <RedeemVoucherDialog

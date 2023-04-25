@@ -1,0 +1,5 @@
+query refill($refillAmount: numeric = "") {
+  triggerRefill(refillAmount: $refillAmount) {
+    session
+  }
+}
